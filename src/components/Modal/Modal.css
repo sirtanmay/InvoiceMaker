@@ -1,9 +1,8 @@
 .modal-overlay {
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+    background: rgba(22, 35, 29, 0.48);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,25 +10,41 @@
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: absolute;
-    top: 20px;
-    max-width: 1080px;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: min(100%, 520px);
+    height: 100%;
+    overflow: auto;
+    padding: 58px 16px 24px;
+    border-radius: 0;
+    background: #f8faf7;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18);
+}
+
+.modal-content:has(.invoice-preview-scroll) {
+    width: min(100%, 940px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 14px 18px 0;
 }
 
 .modal-close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    position: fixed;
+    top: calc(10px + env(safe-area-inset-top));
+    right: max(15px, calc((100vw - 488px) / 2));
+    z-index: 2;
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
     color: unset;
+}
+
+.modal-content:has(.invoice-preview-scroll) .modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
 }
 
 @media print {

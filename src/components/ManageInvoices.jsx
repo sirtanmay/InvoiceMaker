@@ -16,11 +16,11 @@ const ManageInvoices = (props) => {
     const PreRequisites = ({ businessInfo, rcvAccounts }) => {
         return !businessInfo ?
             <div className="pt-32 text-xl text-center">You need to setup your business information.
-                <div className="pt-2 text-base"><button type="button" onClick={() => props.onRouteChange('BusinessInfo')}>Set up now </button></div>
+                <div className="pt-2 text-base"><button className="prerequisite-action" type="button" onClick={() => props.onRouteChange('BusinessInfo')}>Set up now</button></div>
             </div>
             : !rcvAccounts ?
                 <div className="pt-32 text-xl text-center">You need to add Bank Account Info.
-                    <div className="pt-2 text-base"><button type="button" onClick={() => props.onRouteChange('Accounts')}>Add now</button></div>
+                <div className="pt-2 text-base"><button className="prerequisite-action" type="button" onClick={() => props.onRouteChange('Accounts')}>Add now</button></div>
                 </div> : null
     }
 

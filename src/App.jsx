@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import Header from "./components/header";
+import { Building2, FilePlus2, Landmark, ReceiptText } from 'lucide-react';
+import Header from "./components/Header";
 import InvList from "./components/InvList"
 import BusinessInfo from "./components/BusinessInfo"
 import ManageInvoices from "./components/ManageInvoices"
@@ -13,45 +14,42 @@ import './App.css'
 function App() {
 
     const [currentRouteName, setCurrentRouteName] = useState("Dashboard");
-    const [currentInvoiceIndex, setCurrentInvoiceIndex] = useState(-1);
 
     const routes = [
-        { routeName: "Dashboard", view: InvList, label: "Invoices List", showAllButtons: true },
-        { routeName: "Manage", view: ManageInvoices, label: "Manage Invoices", showAllButtons: true },
-        { routeName: "BusinessInfo", view: BusinessInfo, label: "Business Info", showAllButtons: true },
-        { routeName: "Detail", showAllButtons: false },
-        { routeName: "Accounts", view: BankAccounts, showAllButtons: false },
+        { routeName: "Dashboard", view: InvList, label: "Invoices", icon: ReceiptText },
+        { routeName: "Manage", view: ManageInvoices, label: "Create", icon: FilePlus2 },
+        { routeName: "Accounts", view: BankAccounts, label: "Accounts", icon: Landmark },
+        { routeName: "BusinessInfo", view: BusinessInfo, label: "Business", icon: Building2 },
     ];
 
-    const currentRoute = routes.filter(route => route.routeName === currentRouteName)[0];
+    const currentRoute = routes.find(route => route.routeName === currentRouteName);
 
     return (
-        <>
-            <Header />
+        <div className="app-shell">
+            <Header title={currentRoute?.label ?? "Invoices"} />
             <ToastContainer />
 
-            <nav className="flex justify-end pt-4">
-                {
-                    currentRoute?.showAllButtons ?
-                        routes.map(route => route.label &&
-                            <button
-                                className={`tab ${currentRouteName === route.routeName ? "current" : ""}`}
-                                onClick={() => setCurrentRouteName(route.routeName)}
-                                key={route.routeName}
-                            >{route.label}
-                            </button>
-                        ) :
-                        <button onClick={() => setCurrentRouteName("Dashboard")}>Back</button>
-                }
-            </nav>
-
-            <main>
-                {
-                    getViewForRoute(routes.filter(route => route.routeName === currentRouteName), setCurrentRouteName)
-                }
-
+            <main className={`app-content screen-${currentRouteName.toLowerCase()}`}>
+                {getViewForRoute([currentRoute], setCurrentRouteName)}
             </main>
-        </>
+
+            <nav className="bottom-nav" aria-label="Main navigation">
+                {routes.map(route => {
+                    const Icon = route.icon;
+                    const isCurrent = currentRouteName === route.routeName;
+
+                    return <button
+                        className={`bottom-nav-item ${isCurrent ? "current" : ""}`}
+                        onClick={() => setCurrentRouteName(route.routeName)}
+                        key={route.routeName}
+                        aria-current={isCurrent ? "page" : undefined}
+                    >
+                        <Icon size={21} strokeWidth={isCurrent ? 2.4 : 1.8} />
+                        <span>{route.label}</span>
+                    </button>
+                })}
+            </nav>
+        </div>
     )
 }
 
