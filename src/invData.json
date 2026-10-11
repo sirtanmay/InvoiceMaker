@@ -1,0 +1,97 @@
+{
+    "businessName": "Dil Se Foody Explorer",
+    "businessAddress": "B-302, Gini Sanskruti, Handewadi Road, Hadapsar\nPune, Maharashtra, 411028 India",
+    "pan": "AGOPV1217C",
+    "GSTIN": "",
+    "email": "sheetal.varshney76@gmail.com",
+    "mobileNum": "9604297612",
+    "receivingAccounts": [
+        {
+            "accId": "1",
+            "bankName": "HDFC Bank",
+            "branch": "Magarpatta",
+            "accountName": "Sheetal Varshney",
+            "accNum": "04861270004175",
+            "ifsc": "HDFC0000486",
+            "accType": "savings"
+        },
+        {
+            "accId": "2",
+            "bankName": "HDFC Bank",
+            "branch": "Hinjewadi II",
+            "accountName": "Ashutosh Kumar",
+            "accNum": "07941610060548",
+            "ifsc": "HDFC0000794",
+            "accType": "savings"
+        }
+
+    ],
+    "invoices": [
+        {
+            "invNum":1,
+            "invDate": "30 Sep 2026",
+            "subtotal": "3000",
+            "status": "Pending",
+            "clientName": "Roshan",
+            "clientMobile": "9999999999",
+            "billTo": "CREATIVEFUEL PRIVATE LIMITED",
+            "billtoAddress": "105, Gravity Mall, Vijay Nagar\nIndore , Madhya Pradesh, 452010\nIndia",
+            "GSTIN": "23AAJCC1807B1ZC",
+            "items": [
+                {
+                    "campaign": "Maggy Masala",
+                    "itemName": "Instagram Reel",
+                    "quantity": 1,
+                    "rate": "3000",
+                    "amount": 3000
+                }
+            ],
+            "receiverAccountId": "1"
+            
+        },
+        {
+            "invNum":2,
+            "invDate": "30 Sep 2026",
+            "subtotal": "3000",
+            "status": "Pending",
+            "clientName": "Roshan",
+            "clientMobile": "9999999999",
+            "billTo": "CREATIVEFUEL PRIVATE LIMITED",
+            "billtoAddress": "105, Gravity Mall, Vijay Nagar\nIndore , Madhya Pradesh, 452010\nIndia",
+            "GSTIN": "23AAJCC1807B1ZC",
+            "items": [
+                {
+                    "campaign": "Maggy Masala",
+                    "itemName": "Instagram Reel",
+                    "quantity": 1,
+                    "rate": "3000",
+                    "amount": 3000
+                }
+            ],
+            "receiverAccountId": "1"
+
+        },
+        {
+            "invNum":3,
+            "invDate": "30 Sep 2026",
+            "subtotal": "3000",
+            "status": "Pending",
+            "clientName": "Roshan",
+            "clientMobile": "9999999999",
+            "billTo": "CREATIVEFUEL PRIVATE LIMITED",
+            "billtoAddress": "105, Gravity Mall, Vijay Nagar\nIndore , Madhya Pradesh, 452010\nIndia",
+            "GSTIN": "23AAJCC1807B1ZC",
+            "items": [
+                {
+                    "campaign": "Maggy Masala",
+                    "itemName": "Instagram Reel",
+                    "quantity": 1,
+                    "rate": "3000",
+                    "amount": 3000
+                }
+            ],
+            "receiverAccountId": "1"
+            
+        }
+    ]
+}
