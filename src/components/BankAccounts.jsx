@@ -86,7 +86,7 @@ const BusinessInfo = () => {
                 <div><TextInput id="bankName" value={bankName} onChange={(event) => updateFormData(event)} ref={focusRef} /></div>
             </div>
             <div>
-                <label htmlFor="branch">Branch</label>
+                <label htmlFor="branch">Branch Name</label>
                 <div><TextInput id="branch" value={branch} onChange={(event) => updateFormData(event)} /></div>
             </div>
             <div>
